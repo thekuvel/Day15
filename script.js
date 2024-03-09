@@ -1,5 +1,7 @@
 let counter = document.querySelector("#counter");
 let title = document.querySelector("#title");
+let check = 0;
+
 function callBackHell(){
 	title.innerText = "Count down begins";
 	setTimeout(()=>{
@@ -24,6 +26,7 @@ function callBackHell(){
 											counter.innerText = 1;
 											setTimeout(()=>{
 												counter.innerText = "Happy Independence Day";
+												check = 1;
 											},1000)
 										},1000)
 									},1000)
@@ -38,6 +41,9 @@ function callBackHell(){
 }
 
 function reset(){
-	title.innerText = "Click the \"Start\" button to begin the callback hell counter";
-	counter.innerText = "-";
+	if(check === 1){
+		check = 0;
+		title.innerText = "Click the \"Start\" button to begin the callback hell counter";
+		counter.innerText = "-";
+	}	
 }
